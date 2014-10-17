@@ -1,0 +1,27 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<body>
+
+  <style type="text/css">
+    img{height:200px;width:200px;margin: 20px}
+  </style>
+
+  <input name="shuru" id="shuru">
+  <button onclick="showSquare()">显示方块</button>
+  <br>
+
+  <img src="../firstpage/StudyNote/img/1.jpg">
+  <img src="../firstpage/StudyNote/img/2.jpg">
+  <img src="../firstpage/StudyNote/img/3.jpg">
+  <img src="../firstpage/StudyNote/img/4.jpg">
+
+  <script type="text/javascript">
+    function showSquare()
+    {
+      shuzi=document.getElementById("shuru").value;
+      photo=shuzi + ".jpg";
+      window.location="../firstpage/StudyNote/img/" + photo;
+    }
+  </script>
+</body>
+</html>
