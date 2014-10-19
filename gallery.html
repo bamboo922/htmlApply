@@ -1,27 +1,34 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body>
-
   <style type="text/css">
-    img{height:200px;width:200px;margin: 20px}
+    div{width:980px;height: 738px;border: solid}
+    img{width:200px;height: 200px;margin: 10px}
   </style>
-
   <input name="shuru" id="shuru">
   <button onclick="showSquare()">显示方块</button>
-  <br>
 
-  <img src="../firstpage/StudyNote/img/1.jpg">
-  <img src="../firstpage/StudyNote/img/2.jpg">
-  <img src="../firstpage/StudyNote/img/3.jpg">
-  <img src="../firstpage/StudyNote/img/4.jpg">
+  <div id="square"></div>
 
   <script type="text/javascript">
-    function showSquare()
+    function showSquare(shuzi) 
     {
       shuzi=document.getElementById("shuru").value;
-      photo=shuzi + ".jpg";
-      window.location="../firstpage/StudyNote/img/" + photo;
+      one="<img src='../firstpage/StudyNote/img/1.jpg'>";
+      photo="";
+      for(i=0;i<=shuzi-1;i++)
+      {
+        photo=photo+one;
+        document.getElementById("square").innerHTML=photo;
+      }
     }
   </script>
+  
+
+
+  
+  
+
+
 </body>
 </html>
