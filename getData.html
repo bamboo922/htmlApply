@@ -1,0 +1,36 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="../firstpage/StudyNote/jquery-1.11.1.min.js"></script>
+<body>
+  x:
+  <input name="shuru" id="shuru">
+  <br>
+
+  y:
+  <input name="shuru" id="shuru">
+  <br>
+
+  index:
+  <input name="shuru" id="shuru">
+  <br>
+
+  count:
+  <input name="shuru" id="shuru">
+  <br>
+
+
+
+  <script type="text/javascript">
+$(document).ready(function(){
+  $("#b01").click(function(){
+  htmlobj=$.ajax({url:"https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/search?x=-41.2854965&y=174.774601&index=0&count=10",async:false});
+  $("#myDiv").html(htmlobj.responseText);
+  });
+});
+</script>
+
+<div id="myDiv"><h2>通过 AJAX 改变文本</h2></div>
+<button id="b01" type="button">改变内容</button>
+
+</body>
+</html>
