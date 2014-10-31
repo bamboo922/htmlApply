@@ -23,8 +23,7 @@
   <br>
 
   <style type="text/css">
-    div{width:980px;height: 230px;border: solid}
-    img{width:200px;height: 200px;margin: 10px}
+    div{width:980px;height: 230px;border: solid;border-width: 1px}
   </style>
 
   <script type="text/javascript">
@@ -65,7 +64,11 @@
       });
  
       request.done(function( msg ) {
-      alert( msg.restaurants[0] );
+        document.getElementById("jeff").innerHTML=msg.restaurants[0].name;
+        document.getElementById("jasmin").innerHTML=msg.restaurants[6].name;
+        document.getElementById("house").innerHTML=msg.restaurants[7].name;
+        document.getElementById("mall").innerHTML=msg.restaurants[8].name;
+        document.getElementById("Shanghai").innerHTML=msg.restaurants[9].name;
       // 在这里把结果显示到网页上
       });
      
@@ -79,9 +82,26 @@
   <br>
   <br>
   <button onclick="obtain()">获取数据</button>
+  <br>
+  <br>
   
-  <div>
-    <img src="../firstpage/StudyNote/img/1.jpg">
+  <div id="jeff">
+  </div>
+  <br>
+
+  <div id="jasmin">
+  </div>
+  <br>
+
+  <div id="house">
+  </div>
+  <br>
+
+  <div id="mall">
+  </div>
+  <br>
+
+  <div id="Shanghai">
   </div>
 
 </body>
