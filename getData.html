@@ -23,7 +23,7 @@
   <br>
 
   <style type="text/css">
-    div{width:980px;height: 230px;border: solid;border-width: 1px}
+    div{width:980px;height: 230px;border: solid;border-width: 1px;margin: 10px}
   </style>
 
   <script type="text/javascript">
@@ -64,13 +64,20 @@
       });
  
       request.done(function( msg ) {
-        document.getElementById("jeff").innerHTML=msg.restaurants[0].name;
-        document.getElementById("jasmin").innerHTML=msg.restaurants[6].name;
-        document.getElementById("house").innerHTML=msg.restaurants[7].name;
-        document.getElementById("mall").innerHTML=msg.restaurants[8].name;
-        document.getElementById("Shanghai").innerHTML=msg.restaurants[9].name;
-      // 在这里把结果显示到网页上
+        shuzi=document.getElementById("count").value;
+        canguankuang= "<div id='jasmin'></div>";
+        
+        canguan="";
+        
+        for(i=0;i<=shuzi-1;i++)
+        {
+          canguan=canguan+msg.restaurants[i].name+canguankuang;
+        }
+        document.getElementById("restaurant").innerHTML=canguan;
+        // 在这里把结果显示到网页上
       });
+
+      
      
       request.fail(function( jqXHR, textStatus ) {
       alert( "Request failed: " + textStatus );
@@ -81,28 +88,13 @@
   <button onclick="change()">改变参数</button>
   <br>
   <br>
-  <button onclick="obtain()">获取数据</button>
+  <button onclick="obtain()">获取数据,显示餐馆名字</button>
   <br>
-  <br>
-  
-  <div id="jeff">
-  </div>
   <br>
 
-  <div id="jasmin">
-  </div>
-  <br>
+  <p id="restaurant"></p>
 
-  <div id="house">
-  </div>
-  <br>
 
-  <div id="mall">
-  </div>
-  <br>
-
-  <div id="Shanghai">
-  </div>
 
 </body>
 </html>
