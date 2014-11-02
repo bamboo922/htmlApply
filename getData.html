@@ -23,7 +23,8 @@
   <br>
 
   <style type="text/css">
-    div{width:980px;height: 230px;border: solid;border-width: 1px;margin: 10px}
+    div{width:200px;height: 200px;border: solid;border-width: 1px;margin: 10px;float: left}
+    img{width:180px;height: 180px}
   </style>
 
   <script type="text/javascript">
@@ -65,20 +66,15 @@
  
       request.done(function( msg ) {
         shuzi=document.getElementById("count").value;
-        canguankuang= "<div id='jasmin'></div>";
-        
         canguan="";
-        
         for(i=0;i<=shuzi-1;i++)
         {
-          canguan=canguan+msg.restaurants[i].name+canguankuang;
+        canguan=canguan+"<div>"+msg.restaurants[i].name+"</div>";
         }
         document.getElementById("restaurant").innerHTML=canguan;
         // 在这里把结果显示到网页上
       });
 
-      
-     
       request.fail(function( jqXHR, textStatus ) {
       alert( "Request failed: " + textStatus );
       }); 
