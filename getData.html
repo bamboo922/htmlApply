@@ -23,8 +23,8 @@
   <br>
 
   <style type="text/css">
-    div{width:200px;height: 200px;border: solid;border-width: 1px;margin: 10px;float: left}
-    img{width:180px;height: 180px}
+    div{width:280px;height: 280px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
+    img{width:220px;height: 220px;margin-top: 30px}
   </style>
 
   <script type="text/javascript">
@@ -65,13 +65,8 @@
       });
  
       request.done(function( msg ) {
-        shuzi=document.getElementById("count").value;
-        canguan="";
-        for(i=0;i<=shuzi-1;i++)
-        {
-        canguan=canguan+"<div>"+msg.restaurants[i].name+"</div>";
-        }
-        document.getElementById("restaurant").innerHTML=canguan;
+        xinxi=msg;
+        connectString();
         // 在这里把结果显示到网页上
       });
 
@@ -81,6 +76,22 @@
     }
   </script>
 
+  <script type="text/javascript">
+     function connectString()
+     {
+      shuzi=document.getElementById("count").value;
+        canguan="";
+        for(i=0;i<=shuzi-1;i++)
+        {
+         canguan=canguan+"<div>"+xinxi.restaurants[i].name+ "<br>" +"<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id="+
+         xinxi.restaurants[i].id  + "'/>" + "</div>";
+        }
+      document.getElementById("restaurant").innerHTML=canguan;
+      
+     }
+  </script>
+
+
   <button onclick="change()">改变参数</button>
   <br>
   <br>
@@ -89,6 +100,9 @@
   <br>
 
   <p id="restaurant"></p>
+
+
+
 
 
 
