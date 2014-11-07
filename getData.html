@@ -77,18 +77,19 @@
   </script>
 
   <script type="text/javascript">
-     function connectString()
-     {
+    function connectString()
+    {
       shuzi=document.getElementById("count").value;
         canguan="";
         for(i=0;i<=shuzi-1;i++)
         {
-         canguan=canguan+"<div>"+xinxi.restaurants[i].name+ "<br>" +"<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id="+
-         xinxi.restaurants[i].id  + "'/>" + "</div>";
+          canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
+          "<a href='./Menu.html'><img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id=" + xinxi.restaurants[i].id + "'></a>"
+          + "</div>";
         }
       document.getElementById("restaurant").innerHTML=canguan;
       
-     }
+    }
   </script>
 
 
@@ -100,6 +101,9 @@
   <br>
 
   <p id="restaurant"></p>
+
+
+  
 
 
 

@@ -1,0 +1,48 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="./jquery-1.11.1.min.js"></script>
+<body>
+  <style type="text/css">
+    div{width:280px;height: 280px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
+    img{width:220px;height: 220px;margin-top: 30px}
+  </style>
+  <script type="text/javascript">
+    newurl="https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dishes?restaurantId=53cae834c026defe5b75ca60&gid=0&index=0&count=20"
+    
+      var request = $.ajax({
+      url: newurl ,dataType: "json"
+      });
+ 
+      request.done(function( msg ) {
+        xinxi = msg;
+        xunhuan();
+        // 在这里把结果显示到网页上
+      });
+
+      request.fail(function( jqXHR, textStatus ) {
+      alert( "Request failed: " + textStatus );
+      }); 
+ 
+    </script> 
+
+  <script type="text/javascript">
+    function xunhuan()
+    {
+    	caidan="";
+        for(i=0;i<3;i++)
+        {
+          caidan = caidan + "<div>" + xinxi.dishes[i].name + "<br>" + 
+          "<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dish/photo?restaurantId=53cae834c026defe5b75ca60&" +
+          "guid=" + xinxi.dishes[i].guid + "'>" + "</div>";
+        }
+      document.getElementById("menu").innerHTML= caidan;
+    }
+  </script>
+
+  <p id="menu"></p>
+  
+
+
+
+</body>
+</html>
