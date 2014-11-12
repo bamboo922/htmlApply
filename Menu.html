@@ -6,35 +6,40 @@
     div{width:280px;height: 280px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
     img{width:220px;height: 220px;margin-top: 30px}
   </style>
-  <script type="text/javascript">
-    newurl="https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dishes?restaurantId=53cae834c026defe5b75ca60&gid=0&index=0&count=20"
-    
-      var request = $.ajax({
-      url: newurl ,dataType: "json"
-      });
- 
-      request.done(function( msg ) {
-        xinxi = msg;
-        xunhuan();
-        // 在这里把结果显示到网页上
-      });
-
-      request.fail(function( jqXHR, textStatus ) {
-      alert( "Request failed: " + textStatus );
-      }); 
- 
-    </script> 
 
   <script type="text/javascript">
-    function xunhuan()
+    url = window.location.href;
+    canshuid = url.split("?");
+    id = canshuid[1].substring(3);
+
+    caidanurl="https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dishes?restaurantId=" + id + "&gid=0&index=0&count=20";
+
+    var request = $.ajax({
+    url: caidanurl ,dataType: "json"
+    });
+ 
+    request.done(function( msg ) {
+      caidanxinxi = msg;
+      Menu();
+      // 在这里把结果显示到网页上
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+    alert( "Request failed: " + textStatus );
+    }); 
+  </script>
+
+  <script type="text/javascript">
+    function Menu()
     {
     	caidan="";
-        for(i=0;i<3;i++)
-        {
-          caidan = caidan + "<div>" + xinxi.dishes[i].name + "<br>" + 
-          "<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dish/photo?restaurantId=53cae834c026defe5b75ca60&" +
-          "guid=" + xinxi.dishes[i].guid + "'>" + "</div>";
-        }
+      for(i=0;i<4;i++)
+      {
+        caidan = caidan + "<div>" + caidanxinxi.dishes[i].name + "<br>" + 
+        "<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dish/photo?restaurantId=" + id + "&guid=" + 
+        caidanxinxi.dishes[i].guid + "'>" + "</div>";
+        
+      }
       document.getElementById("menu").innerHTML= caidan;
     }
   </script>

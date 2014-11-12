@@ -65,7 +65,7 @@
       });
  
       request.done(function( msg ) {
-        xinxi=msg;
+        xinxi = msg;
         connectString();
         // 在这里把结果显示到网页上
       });
@@ -80,15 +80,14 @@
     function connectString()
     {
       shuzi=document.getElementById("count").value;
-        canguan="";
-        for(i=0;i<=shuzi-1;i++)
+      canguan="";
+      for(i=0;i<=shuzi-1;i++)
         {
           canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
-          "<a href='./Menu.html'><img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id=" + xinxi.restaurants[i].id + "'></a>"
-          + "</div>";
+          "<a href='./Menu.html?id=" + xinxi.restaurants[i].id +"'><img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id=" + 
+          xinxi.restaurants[i].id + "'></a>" + "</div>";
         }
       document.getElementById("restaurant").innerHTML=canguan;
-      
     }
   </script>
 
@@ -101,14 +100,7 @@
   <br>
 
   <p id="restaurant"></p>
-
-
   
-
-
-
-
-
 
 </body>
 </html>
