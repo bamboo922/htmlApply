@@ -2,6 +2,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="./jquery-1.11.1.min.js"></script>
 <body>
+  <style type="text/css">
+    div{width:270px;height: 270px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
+    img{width:230px;height: 230px}
+  </style>
+
   x:
   <input name="x" id="x" value="-41.2854965">
   <br>
@@ -21,11 +26,6 @@
   <input name="count" id="count" value="10">
   <br>
   <br>
-
-  <style type="text/css">
-    div{width:280px;height: 280px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
-    img{width:220px;height: 220px;margin-top: 30px}
-  </style>
 
   <script type="text/javascript">
     newurl="";
@@ -84,14 +84,13 @@
       for(i=0;i<=shuzi-1;i++)
         {
           canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
-          "<a href='./Menu.html?id=" + xinxi.restaurants[i].id +"'><img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id=" + 
+          "<a href='./Menu.html?id=" + xinxi.restaurants[i].id + "'><img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/photo?id=" + 
           xinxi.restaurants[i].id + "'></a>" + "</div>";
         }
       document.getElementById("restaurant").innerHTML=canguan;
     }
   </script>
-
-
+  
   <button onclick="change()">改变参数</button>
   <br>
   <br>
@@ -100,6 +99,9 @@
   <br>
 
   <p id="restaurant"></p>
+
+
+
   
 
 </body>

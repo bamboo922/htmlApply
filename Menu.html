@@ -3,8 +3,8 @@
 <script src="./jquery-1.11.1.min.js"></script>
 <body>
   <style type="text/css">
-    div{width:280px;height: 280px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
-    img{width:220px;height: 220px;margin-top: 30px}
+    div{width:270px;height: 270px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
+    img{width:230px;height: 230px}
   </style>
 
   <script type="text/javascript">
@@ -35,10 +35,9 @@
     	caidan="";
       for(i=0;i<4;i++)
       {
-        caidan = caidan + "<div>" + caidanxinxi.dishes[i].name + "<br>" + 
+        caidan = caidan + "<div>" + caidanxinxi.dishes[i].name + "<br>" + caidanxinxi.dishes[i].prices[0].price + "<br>" +
         "<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dish/photo?restaurantId=" + id + "&guid=" + 
-        caidanxinxi.dishes[i].guid + "'>" + "</div>";
-        
+        caidanxinxi.dishes[i].guid + "'>" + "</div>"; 
       }
       document.getElementById("menu").innerHTML= caidan;
     }
