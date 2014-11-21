@@ -12,7 +12,7 @@
     canshuid = url.split("?");
     id = canshuid[1].substring(3);
 
-    caidanurl="https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dishes?restaurantId=" + id + "&gid=0&index=0&count=20";
+    caidanurl="http://menue.elasticbeanstalk.com/api/customer/restaurant/dishes?restaurantId=" + id + "&gid=0&index=0&count=20";
 
     var request = $.ajax({
     url: caidanurl ,dataType: "json"
@@ -33,10 +33,10 @@
     function Menu()
     {
     	caidan="";
-      for(i=0;i<4;i++)
+      for(i=0;i<6;i++)
       {
         caidan = caidan + "<div>" + caidanxinxi.dishes[i].name + "<br>" + caidanxinxi.dishes[i].prices[0].price + "<br>" +
-        "<img src='https://menu2-didibaba.rhcloud.com/crestaurant/api/customer/restaurant/dish/photo?restaurantId=" + id + "&guid=" + 
+        "<img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/dish/photo?restaurantId=" + id + "&guid=" + 
         caidanxinxi.dishes[i].guid + "'>" + "</div>"; 
       }
       document.getElementById("menu").innerHTML= caidan;
