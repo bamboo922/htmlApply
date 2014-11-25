@@ -1,0 +1,50 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="./jquery-1.11.1.min.js"></script>
+<body>
+  <style type="text/css">
+  a{margin: 5px}
+  </style>
+  <script type="text/javascript">
+    url = window.location.href;
+    canguanid = url.split("?");
+    id = canguanid[1].substring(3);
+
+    zuurl = "http://menue.elasticbeanstalk.com/api/customer/restaurant?id=" + id;
+
+    var request = $.ajax({
+    url: zuurl ,dataType: "json"
+    });
+ 
+    request.done(function( msg ) {
+      fenzuxinxi = msg;
+      fenzu();
+      // 在这里把结果显示到网页上
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+    alert( "Request failed: " + textStatus );
+    }); 
+  </script>
+
+  <script type="text/javascript">
+    function fenzu()
+    {
+      groupname = "";
+      for(i=0;i < fenzuxinxi.restaurant.groups.length;i++)
+      {
+        groupname = groupname + "<a target='down' href='./Menu.html?id=" + id + "gid=" + fenzuxinxi.restaurant.groups[i].gid + "'>" + fenzuxinxi.restaurant.groups[i].name + 
+        "</a>";
+      }
+      document.getElementById("name").innerHTML= groupname;
+    }
+  </script>
+
+  <p id="name"></p>
+
+  
+
+
+
+</body>
+</html>

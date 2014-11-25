@@ -85,15 +85,16 @@
     function connectString()
     {
       canguan="";
-      for(i=0;i<1;i++)
+      for(i=0;i<2;i++)
         {
           canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
-          "<a target='right' href='./Menu.html?id=" + xinxi.restaurants[i].id + "'><img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/photo?id=" + 
+          "<a target='up' href='./group.html?id=" + xinxi.restaurants[i].id + "'><img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/photo?id=" + 
           xinxi.restaurants[i].id + "'></a>" + "</div>";
         }
-        document.getElementById("restaurant").innerHTML=canguan;
+      document.getElementById("restaurant").innerHTML=canguan;
     }
   </script>
   <p id="restaurant"></p>
+  
 </body>
 </html>
