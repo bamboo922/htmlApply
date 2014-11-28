@@ -3,7 +3,7 @@
 <script src="./jquery-1.11.1.min.js"></script>
 <body>
   <style type="text/css">
-    div{width:270px;height: 270px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
+    div{width:300px;height: 300px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
     img{width:230px;height: 230px}
   </style>
 
@@ -37,7 +37,7 @@
     	caidan="";
       for(i=0;i < caidanxinxi.dishes.length;i++)
       {
-        caidan = caidan + "<div>" + caidanxinxi.dishes[i].name + "<br>" + caidanxinxi.dishes[i].prices[0].price + "<br>" +
+        caidan = caidan + "<div>" + caidanxinxi.dishes[i].name + "<br>" + caidanxinxi.dishes[i].prices[0].price + "<br>" + caidanxinxi.dishes[i].desc + "<br>" +
         "<img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/dish/photo?restaurantId=" + id + "&guid=" + 
         caidanxinxi.dishes[i].guid + "'>" + "</div>"; 
       }
