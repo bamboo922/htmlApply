@@ -12,7 +12,7 @@
     canshu = newurl.split("?");
     keyword = canshu[1].substring(8);
 
-    url = "http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2933378&y=174.778312&count=21&index=0&keyword=" + keyword;
+    url = "http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2933378&y=174.778312&count=10&index=0&keyword=" + keyword;
     count = url.substring(98,100);
 
     var request = $.ajax({
@@ -34,7 +34,7 @@
     function connectString()
     {
       canguan = "";
-      for(i = 0 ; i < count ; i++)
+      for(i=0;i<count;i++)
         {
           canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
           "<a href='./group.html?id=" + xinxi.restaurants[i].id + "'><img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/photo?id=" + 
