@@ -3,98 +3,26 @@
 <script src="./jquery-1.11.1.min.js"></script>
 <body>
   <style type="text/css">
-    div{width:270px;height: 270px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
-    img{width:230px;height: 230px}
+    input{width:600px;height:30px;position:relative;left:300px;top:200px;}
+    h1{position:relative;left:480px;top:200px;} 
+    .search{width:100px;height:30px;position:relative;left:300px;top:200px;}  
   </style>
 
-  x:
-  <input name="x" id="x" value="-41.2854965">
-  <br>
-  <br>
+  <h1>Restaurant Search</h1>
+  <input name="resname" id="resname">
 
-  y:
-  <input name="y" id="y" value="174.774601">
-  <br>
-  <br>
 
-  index:
-  <input name="index" id="index" value="0">
-  <br>
-  <br>
-
-  count:
-  <input name="count" id="count" value="10">
-  <br>
-  <br>
-
-  <button onclick="change()">改变参数</button>
-  <br>
-  <br>
-  <button onclick="obtain()" >获取数据,显示餐馆名字</button>
+  <input type="button" value="搜索" class="search" onclick="sousuo()">
 
   <script type="text/javascript">
-    newurl="";
-    function change()
+    function sousuo()
     {
-      url="http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2854965&y=174.774601&index=0&count=10";
-
-      X=document.getElementById("x").value;
-      Y=document.getElementById("y").value;
-      Index=document.getElementById("index").value;
-      Count=document.getElementById("count").value;
-      
-      qian=url.substring(0,65);
-      canshu=url.substring(65);
-
-      one=canshu.substring(0,13);
-      two=canshu.substring(14,26);
-      three=canshu.substring(27,34);
-      four=canshu.substring(35);
-
-      x=one.replace(canshu.substring(2,13),X);
-      y=two.replace(canshu.substring(16,26),Y);
-      index=three.replace(canshu.substring(33,34),Index);
-      count=four.replace(canshu.substring(41),Count);
-
-      newurl = qian + x + "&" + y +  "&" + index + "&" + count;
-
-      alert(newurl);
+      key = document.getElementById("resname").value;
+      url = "http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2933378&y=174.778312&count=21&index=0&keyword=" + key;
+      window.location.assign("./list.html?keyword=" + key);
     }
   </script>
 
-  <script type="text/javascript">
-    function obtain()
-    {
-      var request = $.ajax({
-      url: newurl ,dataType: "json"
-      });
- 
-      request.done(function( msg ) {
-        xinxi = msg;
-        connectString();
-        // 在这里把结果显示到网页上
-      });
 
-      request.fail(function( jqXHR, textStatus ) {
-      alert( "Request failed: " + textStatus );
-      }); 
-    }
-  </script>
-
-  <script type="text/javascript">
-    function connectString()
-    {
-      canguan="";
-      for(i=0;i<2;i++)
-        {
-          canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
-          "<a target='up' href='./group.html?id=" + xinxi.restaurants[i].id + "'><img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/photo?id=" + 
-          xinxi.restaurants[i].id + "'></a>" + "</div>";
-        }
-      document.getElementById("restaurant").innerHTML=canguan;
-    }
-  </script>
-  <p id="restaurant"></p>
-  
 </body>
 </html>

@@ -1,0 +1,48 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="./jquery-1.11.1.min.js"></script>
+<body>
+  <style type="text/css">
+    div{width:270px;height: 270px;border: solid;border-width: 1px;margin: 5px;float: left;text-align: center}
+    img{width:230px;height: 230px}
+  </style>
+
+  <script type="text/javascript">
+    newurl = window.location.href;
+    canshu = newurl.split("?");
+    keyword = canshu[1].substring(8);
+
+    url = "http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2933378&y=174.778312&count=21&index=0&keyword=" + keyword;
+    count = url.substring(98,100);
+
+    var request = $.ajax({
+    url: url ,dataType: "json"
+    });
+ 
+    request.done(function( msg ) {
+    xinxi = msg;
+    connectString();
+      // 在这里把结果显示到网页上
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+    alert( "Request failed: " + textStatus );
+    }); 
+  </script>
+
+  <script type="text/javascript">
+    function connectString()
+    {
+      canguan = "";
+      for(i = 0 ; i < count ; i++)
+        {
+          canguan = canguan + "<div>" + xinxi.restaurants[i].name + "<br>" + 
+          "<a href='./group.html?id=" + xinxi.restaurants[i].id + "'><img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/photo?id=" + 
+          xinxi.restaurants[i].id + "'></a>" + "</div>";
+        }
+      document.getElementById("restauramt").innerHTML = canguan;
+    }
+  </script>
+  <p id="restauramt"></p>
+</body>
+</html>
