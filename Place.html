@@ -1,0 +1,33 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="./jquery-1.11.1.min.js"></script>
+<body>
+   <script type="text/javascript">
+    url = "http://api.map.baidu.com/location/ip?ak=Xz7S1TmVVYhMrw1mHLb7GxOG&ip=&coor=bd09ll";
+
+    var request = $.ajax({
+    url: url ,dataType: "json"
+    });
+ 
+    request.done(function( msg ) {
+    xinxi = msg;
+    weizhi();
+      // 在这里把结果显示到网页上
+    });
+
+    request.fail(function( jqXHR, textStatus ) {
+    alert( "Request failed: " + textStatus );
+    }); 
+  </script>
+
+  <script type="text/javascript">
+    function weizhi()
+    {
+      document.getElementById("place").innerHTML = xinxi.content.address_detail.city + xinxi.content.address_detail.province;
+    }
+  </script>
+
+  <p id="place"></p>
+
+</body>
+</html>

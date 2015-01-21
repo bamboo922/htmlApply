@@ -17,9 +17,18 @@
   <script type="text/javascript">
     function sousuo()
     {
-      key = document.getElementById("resname").value;
-      url = "http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2933378&y=174.778312&count=21&index=0&keyword=" + key;
-      window.location.assign("./list.html?keyword=" + key);
+      writing = document.getElementById("resname").value;
+      aaa = writing.indexOf(" ");
+      if(writing.indexOf(" ") == -1)
+      {
+        
+        url = "http://menue.elasticbeanstalk.com/api/customer/restaurant/search?x=-41.2933378&y=174.778312&count=21&index=0&keyword=" + writing;
+        window.location.assign("./List.html?keyword=" + writing);
+      }
+      else
+      {
+        window.location.assign("./Place.html?restaurantname=" + writing);
+      }
     }
   </script>
 

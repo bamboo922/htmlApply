@@ -31,7 +31,7 @@
   </script>
 
   <script type="text/javascript">
-    function connectString()
+   function connectString()
     {
       canguan = "";
       for(i=0;i<count;i++)
@@ -40,9 +40,11 @@
           "<a href='./group.html?id=" + xinxi.restaurants[i].id + "'><img src='http://menue.elasticbeanstalk.com/api/customer/restaurant/photo?id=" + 
           xinxi.restaurants[i].id + "'></a>" + "</div>";
         }
-      document.getElementById("restauramt").innerHTML = canguan;
+      document.getElementById("restaurant").innerHTML = canguan;
     }
   </script>
-  <p id="restauramt"></p>
+  
+  <p id="restaurant"></p>
+  
 </body>
 </html>
